@@ -38,6 +38,7 @@ class CertFilesHandler(FileSystemEventHandler):
     def on_any_event(self, event):
         if event.is_directory:
             return
+        print("[INFO] Watched Event %s" % repr(event))
         self.reload_certificates()
 
     @debounce(3)
